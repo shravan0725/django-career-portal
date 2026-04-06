@@ -17,4 +17,4 @@ Database: (SQLite / PostgreSQL)
 🔐 Security
 Implements JWT-based authentication for secure and scalable session management, reducing dependency on traditional session-based login systems.
 
-![image alt](https://teams.microsoft.com/l/message/48:notes/1775451921904?context=%7B%22contextType%22%3A%22chat%22%2C%22oid%22%3A%228%3Aorgid%3A7e303b93-ee92-4c3f-bbcb-77cd49d366cb%22%7D)
+
