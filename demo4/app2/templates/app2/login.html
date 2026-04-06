@@ -1,0 +1,29 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <div class="grid-2" style="align-items: center; gap: 1rem;">
+        <div>
+            <h2>{{ title }}</h2>
+            <p class="small-text">{{ caption }}</p>
+        </div>
+    </div>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="errorlist">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {% for field in form %}
+            {{ field.errors }}
+            <label>{{ field.label }}</label>
+            {{ field }}
+        {% endfor %}
+        <button type="submit" class="button full">Login</button>
+    </form>
+    {% if title == 'User Login' %}
+        <p class="small-text">New user? <a href="/app2/signup/">Create an account</a></p>
+    {% else %}
+        <p class="small-text">HR login is reserved for HR staff. If you need a new HR account, <a href="/app2/hr/signup/">create one here</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}

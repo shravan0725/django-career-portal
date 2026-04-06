@@ -1,0 +1,31 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card">
+    <div class="grid-2">
+        <div>
+            <p class="small-text">{{ is_admin|yesno:"Admin Dashboard,HR Dashboard" }}</p>
+            <h2>{{ is_admin|yesno:"Admin overview,HR overview" }}</h2>
+            <p class="small-text">Review App2 records, monitor employee accounts, and manage access for your team.</p>
+        </div>
+        <div class="form-footer">
+            <a class="button full" href="{% url 'app2-list' %}">View Applications</a>
+            <a class="button secondary full" href="{% url 'app2-profile' %}">Edit Your Profile</a>
+        </div>
+    </div>
+    <div class="grid-3" style="margin-top:1.5rem;">
+        <div class="card">
+            <h4>Total App2 records</h4>
+            <p class="large-text">{{ item_count }}</p>
+        </div>
+        <div class="card">
+            <h4>Registered users</h4>
+            <p class="large-text">{{ employee_count }}</p>
+        </div>
+        <div class="card">
+            <h4>Access level</h4>
+            <p class="large-text">{% if is_admin %}Admin{% else %}HR{% endif %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

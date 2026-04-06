@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <div class="grid-2" style="align-items: center; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+            <h2>User Registration</h2>
+            <p class="small-text">Create a personal account for App2 and manage your own profile and records.</p>
+        </div>
+    </div>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="errorlist">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {% for field in form %}
+            {{ field.errors }}
+            <label>{{ field.label }}</label>
+            {{ field }}
+        {% endfor %}
+        <button type="submit" class="button full">Create account</button>
+    </form>
+    <p class="small-text">Already have an account? <a href="/app2/login/">Login</a></p>
+</div>
+{% endblock %}

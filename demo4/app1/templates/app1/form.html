@@ -1,0 +1,12 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <h2>{% if object %}Edit{% else %}Create{% endif %} App1 Record</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Save</button>
+    </form>
+</div>
+{% endblock %}

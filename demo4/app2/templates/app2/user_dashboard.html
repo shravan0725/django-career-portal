@@ -1,0 +1,45 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card">
+    <h2>My Applications</h2>
+    <p class="small-text">Submit a new job application or review your existing submissions.</p>
+    <div class="form-footer" style="margin-top:1rem;">
+        <a class="button full" href="{% url 'app2-apply' %}">Apply for a Job</a>
+        <a class="button secondary full" href="{% url 'app2-profile' %}">Edit Profile</a>
+    </div>
+</div>
+
+{% if items %}
+    <div class="section-card" style="margin-top:1.5rem;">
+        <h3>Your Applications</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.full_name }}</td>
+                        <td>{{ item.department }}</td>
+                        <td>{{ item.role }}</td>
+                        <td>{{ item.status }}</td>
+                        <td>{{ item.updated_at|date:'M d, Y H:i' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div class="section-card" style="margin-top:1.5rem;">
+        <h3>No applications yet</h3>
+        <p class="small-text">Click the button above to submit your first application.</p>
+    </div>
+{% endif %}
+{% endblock %}

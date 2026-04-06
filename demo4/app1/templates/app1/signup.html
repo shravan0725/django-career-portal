@@ -1,0 +1,13 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <h2>App1 Signup</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Create account</button>
+    </form>
+    <p class="small-text">Already have an account? <a href="/app1/login/">Login</a></p>
+</div>
+{% endblock %}

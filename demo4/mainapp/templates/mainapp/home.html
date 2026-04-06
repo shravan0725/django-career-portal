@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="small-text">Launch your career or manage candidate applications with a smooth HR experience.</p>
+        <h1>Job Portal</h1>
+        <p class="small-text">Candidates can register, apply, and track their applications. HR can log in to review, search, and filter submissions.</p>
+    </div>
+</section>
+
+<div class="grid-2">
+    <div class="card">
+        <h3>Candidate Access</h3>
+        <p>Create an account to submit job applications and manage your own profile.</p>
+        <a class="button full" href="/app2/signup/">Register as Candidate</a>
+        <a class="button secondary full" href="/app2/login/">Candidate Login</a>
+    </div>
+    <div class="card">
+        <h3>HR Access</h3>
+        <p>HR users can log in to view applications, filter by department/role, and monitor candidate status.</p>
+        <a class="button full" href="/app2/hr/login/">HR Login</a>
+        <a class="button secondary full" href="/app2/hr/signup/">Create HR Account</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <h2>Admin Login</h2>
+    <p class="small-text">Only predefined admins can sign in here. Your account must be part of the Admin group.</p>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="errorlist">{{ form.non_field_errors }}</div>
+        {% endif %}
+        <label>Username</label>
+        {{ form.username }}
+        <label>Password</label>
+        {{ form.password }}
+        <button type="submit" class="button full">Login</button>
+    </form>
+    <div class="form-footer">
+        <p class="small-text">Need an admin account? <a href="/signup/">Create admin account</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <h2>App1 Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="errorlist">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {{ form.user_id.errors }}
+        <label>User ID</label>
+        {{ form.user_id }}
+        {{ form.username.errors }}
+        <label>Username</label>
+        {{ form.username }}
+        {{ form.password.errors }}
+        <label>Password</label>
+        {{ form.password }}
+        <button type="submit" class="button">Login</button>
+    </form>
+    <p class="small-text">New user? <a href="/app1/signup/">Create an account</a></p>
+</div>
+{% endblock %}

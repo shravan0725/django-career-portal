@@ -1,0 +1,50 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card">
+    <h1>Dashboard</h1>
+    <p class="small-text">Welcome back, {{ user.username }}. Quick access to each app and user details.</p>
+    <div class="grid-3">
+        <div class="card">
+            <h3>App1 records</h3>
+            <p class="large-text">{{ app1_count }}</p>
+        </div>
+        <div class="card">
+            <h3>App2 records</h3>
+            <p class="large-text">{{ app2_count }}</p>
+        </div>
+    </div>
+    <div class="form-footer">
+        <a href="/app1/" class="button">Open App1</a>
+        <a href="/app2/" class="button">Open App2</a>
+    </div>
+</div>
+<div class="grid-2">
+    <div class="col-sm-4 card">
+        <h4>App1 users</h4>
+        <ul>
+            {% for login in app1_logins %}
+                <li>{{ login.username }}</li>
+            {% empty %}
+                <li>No app1 user records</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-4 card">
+        <h4>App2 users</h4>
+        <ul>
+            {% for login in app2_logins %}
+                <li>{{ login.username }}</li>
+            {% empty %}
+                <li>No app2 user records</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% if is_admin %}
+    <div class="card">
+        <h4>RBAC</h4>
+        <p>You are an admin and can manage all user data across apps.</p>
+    </div>
+{% endif %}
+{% endblock %}

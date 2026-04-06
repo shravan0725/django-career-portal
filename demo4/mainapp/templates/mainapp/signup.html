@@ -1,0 +1,16 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card form-card">
+    <h2>Create Admin Account</h2>
+    <p class="small-text">Create a new admin account with full access to manage users and system data.</p>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button full">Create Admin Account</button>
+    </form>
+    <div class="form-footer">
+        <p class="small-text">Already have an admin account? <a href="/login/">Login</a></p>
+    </div>
+</div>
+{% endblock %}

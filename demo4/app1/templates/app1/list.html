@@ -1,0 +1,31 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="section-card">
+    <div class="form-footer">
+        <h2>App1 Records</h2>
+        <a href="/app1/create/" class="button">Add new App1 record</a>
+    </div>
+    {% if items %}
+    <table>
+        <thead>
+            <tr><th>Title</th><th>Owner</th><th>Updated</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.user.username }}</td>
+                    <td>{{ item.updated_at }}</td>
+                    <td>
+                        <a href="{{ item.pk }}/edit/">Edit</a>
+                        <a href="{{ item.pk }}/delete/">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No records yet.</p>
+{% endif %}
+{% endblock %}
