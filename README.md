@@ -16,3 +16,5 @@ Database: (SQLite / PostgreSQL)
 
 🔐 Security
 Implements JWT-based authentication for secure and scalable session management, reducing dependency on traditional session-based login systems.
+
+![Project Screenshot]([screenshot.png](https://github.com/shravan0725/django-career-portal/blob/main/Screenshot%202026-04-06%20102030.png))
